@@ -1,6 +1,12 @@
 package it.unibz.r1control.model.data;
 
+import java.util.Arrays;
+
 public class SensorValues {
+	public static final int IR_DATA_COUNT = 2;
+	public static final int US_DATA_COUNT = 8;
+
+
 	private InfraRedData [] irData;
 	private MagnetometerData mgData;
 	private MotorControlData mcData;
@@ -8,8 +14,8 @@ public class SensorValues {
 	private UltrasonicData [] usData;
 	
 	public SensorValues() {
-		irData = new InfraRedData[2];
-		usData = new UltrasonicData[8];
+		irData = new InfraRedData[IR_DATA_COUNT];
+		usData = new UltrasonicData[US_DATA_COUNT];
 	}
 
 	public InfraRedData getIrData(int i) {
@@ -51,6 +57,11 @@ public class SensorValues {
 	public void setUsData(int i, UltrasonicData usData) {
 		this.usData[i] = usData;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "SensorValues: { "
+			+ "usData: " + Arrays.toString(usData)
+			+ "}";
+	}
 }
