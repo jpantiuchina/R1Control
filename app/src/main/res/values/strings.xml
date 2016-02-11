@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">R1Control</string>
+    <string name="turbo">Turbo</string>
+    <string name="start">Start</string>
+    <string name="cmd_interrupted">Command was interrupted</string>
+    <string name="cmd_timeout">Command timed out</string>
+    <string name="cmd_error">Could not execute command</string>
+    <string name="error">Error occurred</string>
 </resources>

@@ -1,0 +1,55 @@
+@startuml
+
+
+
+package controller {
+	class MainActivity
+	class BluetoothConnection implements ErrorConsumer
+	class Communicator
+	class Watcher<R>
+	interface SpeedController
+	interface Consumer<R>
+	interface ErrorConsumer
+	package cmd {
+		abstract class Command<R>
+		class ScanCommand extends Command
+		class GetVersionCommand extends Command
+		package adjust {
+			class AdjustingScanCommand extends ScanCommand
+		}
+		package special {
+			class SpecialScanCommand extends ScanCommand
+			class SpecialGetVersionCommand extends GetVersionCommand
+		}
+	}
+}
+
+package model {
+	class DistanceData
+	class MotorSpeed
+	class SensorValues
+}
+
+package view {
+	class SensorView implements Consumer
+}
+
+SpeedController <-- MainActivity
+BluetoothConnection <-- MainActivity
+SensorView <-- MainActivity
+Communicator <-- MainActivity
+Communicator --> Command
+Watcher <-- Communicator
+Watcher --> Consumer
+Watcher --> ErrorConsumer
+Watcher --> Command
+
+SensorValues o-- DistanceData
+
+SensorView o-- SensorValues
+ScanCommand --> SensorValues
+ScanCommand --> MotorSpeed
+SpeedController --> MotorSpeed
+
+
+@enduml
