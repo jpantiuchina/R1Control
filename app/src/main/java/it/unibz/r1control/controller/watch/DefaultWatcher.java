@@ -7,7 +7,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import it.unibz.r1control.controller.Consumer;
-import it.unibz.r1control.model.ErrorConsumer;
+import it.unibz.r1control.controller.ErrorConsumer;
 
 /**
  * General Watcher implementation

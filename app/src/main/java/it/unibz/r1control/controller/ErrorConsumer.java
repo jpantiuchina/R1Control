@@ -1,4 +1,4 @@
-package it.unibz.r1control.model;
+package it.unibz.r1control.controller;
 
 /**
  * Consumes an error

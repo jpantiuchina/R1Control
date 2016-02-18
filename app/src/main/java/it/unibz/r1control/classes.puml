@@ -10,8 +10,9 @@ package controller {
 	interface SpeedController
 	interface Consumer<R>
 	interface ErrorConsumer
+	interface Callable<R>
 	package cmd {
-		abstract class Command<R>
+		abstract class Command<R> implements Callable
 		class ScanCommand extends Command
 		class GetVersionCommand extends Command
 		package adjust {
@@ -42,7 +43,7 @@ Communicator --> Command
 Watcher <-- Communicator
 Watcher --> Consumer
 Watcher --> ErrorConsumer
-Watcher --> Command
+Watcher --> Callable
 
 SensorValues o-- DistanceData
 

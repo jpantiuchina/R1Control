@@ -13,7 +13,6 @@ import java.util.UUID;
 import java.util.concurrent.TimeoutException;
 
 import it.unibz.r1control.R;
-import it.unibz.r1control.model.ErrorConsumer;
 
 /**
  * Opens and manages a bluetooth connection to the robot.
@@ -80,7 +79,7 @@ public class BluetoothConnection implements ErrorConsumer {
 		try {
 			System.out.println("Connecting to: " + device.getName() + " at " + device.getAddress());
 			btSocket = device.createRfcommSocketToServiceRecord(MY_UUID);
-			btSocket.connect(); // Blocks until it success or exception
+			btSocket.connect(); // Blocks until success or exception
 			System.out.println("CONNECTED!");
 			main.getCommunicator().start();
 		} catch (IOException e) {

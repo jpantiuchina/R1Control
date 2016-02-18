@@ -1,0 +1,24 @@
+@startuml
+Communicator -> Watcher: watch(Command)
+activate Watcher
+Watcher -> Command: call
+activate Command
+Command -> robot: set speed(left, right)
+robot --> Command: sensor values
+Command --> Watcher: result
+deactivate Command
+Watcher --> Communicator
+deactivate Watcher
+|||
+Communicator -> Watcher: watch(Command)
+activate Watcher
+Watcher -> Command: call
+activate Command
+Command -> robot: set speed(left, right)
+robot --x Command: sensor values
+Watcher -> Command: timeout
+deactivate Command
+Watcher --> Communicator: timeout
+deactivate Watcher
+
+@enduml

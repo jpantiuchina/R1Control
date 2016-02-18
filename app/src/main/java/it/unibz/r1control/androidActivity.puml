@@ -1,0 +1,14 @@
+@startuml
+title Android App
+start
+:get SPECIAL SCAN VERSIONS;
+repeat
+	if (is version special?) then (yes)
+	else (no)
+		:adjust speed;
+	endif
+	:send SCAN command;
+	:display returned sensor data;
+repeat while (no error occurred?)
+stop
+@enduml

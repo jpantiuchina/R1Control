@@ -1,7 +1,5 @@
 package it.unibz.r1control.controller;
 
-import it.unibz.r1control.model.ErrorConsumer;
-
 /**
  * ResultHandler that wraps an ErrorConsumer and implements the ErrorConsumer interface
  * Created by Matthias on 11.02.2016.

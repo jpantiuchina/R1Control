@@ -1,7 +1,5 @@
 package it.unibz.r1control.controller;
 
-import it.unibz.r1control.model.ErrorConsumer;
-
 /**
  * Static methods for Consumers
  * Created by Matthias on 04.02.2016.

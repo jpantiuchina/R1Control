@@ -1,0 +1,17 @@
+@startuml
+title Obstacle Avoidance
+start
+:check direction;
+:check ultrasonic;
+if (some value in direction too close) then (yes)
+	if (standing) then (yes)
+		:move away;
+	else if (moving in direction) then (yes)
+		:turn away;
+	endif
+else (no)
+	:limit speed depending on
+	closest value in direction;
+endif
+stop
+@enduml

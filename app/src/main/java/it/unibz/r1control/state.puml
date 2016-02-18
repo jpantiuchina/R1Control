@@ -1,0 +1,19 @@
+@startuml
+
+state Active {
+  [*] -> SCANreq
+  SCANreq: SCAN
+  SCANreq: wait
+  SCANreq --> SCANresp : [got result]
+  SCANresp: update values
+  SCANresp --> SCANreq
+  SCANreq --> SCANreq : [timeout]
+  --
+  [*] -> cmdReq
+  cmdReq: wait
+  cmdReq --> cmdResp : [got command]
+  cmdResp: answer cmd
+  cmdResp --> cmdReq
+}
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+
+() Bluetooth
+() UART
+Bluetooth -- [HC-06]
+[HC-06] --> UART
+
+node "Android" {
+	[View] --> [Model]
+	Consumer - [View]
+	Consumer <-- [Controller]
+	[Controller] -> [Model]
+	[Controller] --> Bluetooth
+}
+
+node "Arduino" {
+	Bluetooth -- [Obstacle Avoidance]
+	[Obstacle Avoidance] --> UART
+}
+
+node "Robot" {
+	UART - [RoboSpine]
+}
+
+@enduml

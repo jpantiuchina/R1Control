@@ -1,0 +1,18 @@
+@startuml
+state Developing {
+  SelectFeature: what?
+  SolutionIdea: how?
+  [*] -> SelectFeature
+  SelectFeature -> SolutionIdea: [done]
+  SolutionIdea -> Code: [done]
+  Code --> Verify : [done]
+  Verify --> Code : [incorrect]
+  Verify -l-> Validate : [correct]
+  Validate -u-> SelectFeature : [idea good]
+  Validate -u-> SolutionIdea : [idea bad]
+  --
+  Refactor: rewrite code
+  [*] -> Refactor
+  Refactor --> Refactor : [found bad code]
+}
+@enduml
